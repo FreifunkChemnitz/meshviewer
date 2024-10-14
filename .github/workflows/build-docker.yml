@@ -15,10 +15,10 @@ env:
 jobs:
   buildx:
     runs-on: ubuntu-latest
-    services:
-      docker:
-        image: docker:20.10.7
-        options: --privileged
+    #services:
+    #  docker:
+    #    image: docker:20.10.7
+    #    options: --privileged
     steps:
       - 
         name: Checkout
