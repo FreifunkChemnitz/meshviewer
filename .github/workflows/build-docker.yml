@@ -25,7 +25,8 @@ jobs:
       - name: Retrieve author data
         run: |
           echo AUTHOR=$(curl -sSL ${{ github.event.repository.owner.url }} | jq -r '.name') >> $GITHUB_ENV
-      - name: Extract metadata (tags, labels) for Docker
+      - 
+        name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
         with:
