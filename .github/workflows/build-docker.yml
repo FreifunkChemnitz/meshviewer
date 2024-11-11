@@ -24,7 +24,15 @@ jobs:
         uses: actions/checkout@v6
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v3
-      - name: Setup Docker buildx
+      - 
+        name: Log in to ghcr.io
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - 
+        name: Setup Docker buildx
         uses: docker/setup-buildx-action@v3
       - name: Retrieve author data
         run: |
@@ -42,7 +50,7 @@ jobs:
         with:
           context: .
           platforms: linux/amd64
-          push: false
+          push: true
           load: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
