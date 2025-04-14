@@ -12,5 +12,5 @@ COPY --from=build /app/build /usr/share/nginx/html
 # Add robots.txt
 ADD ./robots.txt /usr/share/nginx/html
 WORKDIR /usr/share/nginx/html
-
+EXPOSE 80
 # nginx gets automatically started as user nginx, no USER required
